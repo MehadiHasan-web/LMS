@@ -12,4 +12,9 @@ class Course extends Model
     public function curriculumns() {
         return $this->hasMany(Curriculum::class);
     }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class, table:'course_student', foreignPivotKey:'course_id', relatedKey:'user_id');
+    }
 }
